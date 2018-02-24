@@ -1,0 +1,18 @@
+{
+  "name": "phaseapp-search",
+  "bin": "./src/index.js",
+  "version": "0.1.0",
+  "description": "Search across multiple PhraseApp projects",
+  "main": "./src/index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@gilbertco/restify-async-wrap": "^0.1.2",
+    "axios": "^0.17.1",
+    "color-hash": "~1.0.3",
+    "now-logs": "0.0.7",
+    "restify": "~6.3.4"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
+  }
+}
