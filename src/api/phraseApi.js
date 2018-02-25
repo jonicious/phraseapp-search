@@ -7,7 +7,7 @@ const getProjects = async () => {
             'per_page': 100
         },
         headers: {
-            'Authorization': `token ${apiKey}`
+            'Authorization': `token ${accessToken}`
         }
     });
     return response.data;
@@ -19,7 +19,7 @@ const getAccounts = async () => {
             'per_page': 100
         },
         headers: {
-            'Authorization': `token ${apiKey}`
+            'Authorization': `token ${accessToken}`
         }
     });
     return response.data;
@@ -38,7 +38,7 @@ const searchThroughProject = async (searchString, projectId) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': `token ${apiKey}`
+                'Authorization': `token ${accessToken}`
             }
         }
     );
