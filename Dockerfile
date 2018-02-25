@@ -22,7 +22,7 @@ COPY ./ /application
 WORKDIR /application
 RUN npm install \
     && apk del .build-deps
-
+USER node
 EXPOSE 8080
 CMD [ "npm", "start" ]
 
