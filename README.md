@@ -52,5 +52,7 @@ TODO: Add section about Slack Bot.
 
 ## How to get started
 
-* TODO: Add information on how to get a PhraseApp API key
-* TODO: Add information that you need to pass the api key as an environment variable
+* Go to your settings page in PhraseApp and create a new access token [here](https://phraseapp.com/settings/oauth_access_tokens).
+* When you run this project you need to pass your access token as an environment variable called `PHRASE_APP_ACCESS_TOKEN`.
+
+
