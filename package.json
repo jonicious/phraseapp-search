@@ -11,7 +11,8 @@
     "color-hash": "~1.0.3",
     "forever": "^0.15.3",
     "now-logs": "0.0.7",
-    "restify": "~6.3.4"
+    "restify": "~6.3.4",
+    "restify-errors": "^6.0.0"
   },
   "scripts": {
     "forever": "./node_modules/.bin/forever",

@@ -1,7 +1,9 @@
 const axios = require('axios');
 const restifyAsyncWrap = require('@gilbertco/restify-async-wrap');
+const errors = require('restify-errors');
 const ColorHash = require('color-hash');
 const colorHash = new ColorHash();
+const configuredSlackToken = process.env.SLACK_TOKEN;
 
 const { getResultListForString, getAccounts } = require('../api/phraseApi');
 
@@ -74,6 +76,11 @@ const buildSlackRequestBody = (resultList, accountName) => {
 const slackHandler = server => {
     server.post('/slack', restifyAsyncWrap(async (req, res, next) => {
         console.log('Received slack message');
+
+        const slackToken = req.body.token;
+        if (configuredSlackToken && configuredSlackToken !== slackToken) {
+            return next(new errors.InvalidCredentialsError());
+        }
 
         res.json({ text: 'Let me look that up for you...' });
 
