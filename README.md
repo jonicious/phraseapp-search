@@ -45,14 +45,22 @@ docker build --rm -t phaseapp-search .
 docker run -d -p 8080:8080 phaseapp-search
 ```
 
-
 ### Slack Bot
 
-TODO: Add section about Slack Bot.
+This project also includes a Slash Command for Slack. You can use it like this.
+
+```
+/phraseapp-search The string you are looking for.
+```
+
+It is available under `https://whereever-you-are-hosting-this.com/slack`. Your settings should look something like this.
+
+![](./slash-command-settings.png)
+
+You can also pass the Slack token as an environment variable called `SLACK_TOKEN`. If the token configured in Slack does not equal the token configured by you, it will return a 401 and the Slack Slash Command will not work.
 
 ## How to get started
 
 * Go to your settings page in PhraseApp and create a new access token [here](https://phraseapp.com/settings/oauth_access_tokens).
 * When you run this project you need to pass your access token as an environment variable called `PHRASE_APP_ACCESS_TOKEN`.
-
 
