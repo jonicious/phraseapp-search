@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiKey = process.env.API_KEY;
+const accessToken = process.env.PHRASE_APP_ACCESS_TOKEN;
 
 const getProjects = async () => {
     const response = await axios.get('https://api.phraseapp.com/api/v2/projects', {
