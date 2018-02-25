@@ -44,6 +44,8 @@ This project also includes a Slash Command for Slack. You can use it like this.
 /phraseapp-search The string you are looking for.
 ```
 
+![](./phraseapp-search-slack.gif)
+
 It is available under `https://whereever-you-are-hosting-this.com/slack`. Your settings should look something like this.
 
 ![](./slash-command-settings.png)
