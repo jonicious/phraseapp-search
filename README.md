@@ -36,15 +36,6 @@ This will give you a list of results, e.g.
 }
 ```
 
-### Docker
-
-The project can easily be build into a Docker container with the provided Dockerfile
-
-```
-docker build --rm -t phaseapp-search .
-docker run -d -p 8080:8080 phaseapp-search
-```
-
 ### Slack Bot
 
 This project also includes a Slash Command for Slack. You can use it like this.
@@ -64,3 +55,11 @@ You can also pass the Slack token as an environment variable called `SLACK_TOKEN
 * Go to your settings page in PhraseApp and create a new access token [here](https://phraseapp.com/settings/oauth_access_tokens).
 * When you run this project you need to pass your access token as an environment variable called `PHRASE_APP_ACCESS_TOKEN`.
 
+### Docker
+
+The project can easily be build into a Docker container with the provided Dockerfile
+
+```
+docker build --rm -t phaseapp-search .
+docker run -d -p 8080:8080 phaseapp-search
+```
