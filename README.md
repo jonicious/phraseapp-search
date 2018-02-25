@@ -36,6 +36,16 @@ This will give you a list of results, e.g.
 }
 ```
 
+### Docker
+
+The project can easily be build into a Docker container with the provided Dockerfile
+
+```
+docker build --rm -t phaseapp-search .
+docker run -d -p 8080:8080 phaseapp-search
+```
+
+
 ### Slack Bot
 
 TODO: Add section about Slack Bot.
