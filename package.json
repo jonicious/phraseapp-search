@@ -9,10 +9,12 @@
     "@gilbertco/restify-async-wrap": "^0.1.2",
     "axios": "^0.17.1",
     "color-hash": "~1.0.3",
+    "forever": "^0.15.3",
     "now-logs": "0.0.7",
     "restify": "~6.3.4"
   },
   "scripts": {
-    "start": "node ./src/index.js"
+    "forever": "./node_modules/.bin/forever",
+    "start": "npm run forever ./src/index.js"
   }
 }
