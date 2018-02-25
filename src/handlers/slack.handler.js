@@ -34,22 +34,23 @@ const makeAttachment = (result, accountName) => {
                 title: "Name",
                 value: result.keyName,
                 short: false
+            },
+            {
+                title: "Text",
+                value: result.text,
+                short: false
             }
         ]
     }
 };
 
-const sendMessageToSlack = (responseUrl, resultList, accountName) => {
-    console.log('Will send message to Slack', resultList);
-
-    const attachments = resultList.map(result => makeAttachment(result, accountName));
+const sendMessageToSlack = (responseUrl, requestBody) => {
+    console.log('Will send message to Slack', requestBody);
 
     try {
         axios.post(
             responseUrl,
-            {
-                attachments
-            },
+            requestBody,
             {
                 headers: {
                     'Content-type': 'application/json'
@@ -61,6 +62,15 @@ const sendMessageToSlack = (responseUrl, resultList, accountName) => {
     }
 };
 
+const buildSlackRequestBody = (resultList, accountName) => {
+    if (resultList.length) {
+        const attachments = resultList.map(result => makeAttachment(result, accountName));
+        return { attachments };
+    }
+
+    return { text: 'No translations found :(' };
+};
+
 const slackHandler = server => {
     server.post('/slack', restifyAsyncWrap(async (req, res, next) => {
         console.log('Received slack message');
@@ -70,7 +80,7 @@ const slackHandler = server => {
         const resultList = await getResultListForString(req.body.text);
         const accounts = await getAccounts();
         const accountName = accounts[0].name;
-        await sendMessageToSlack(req.body.response_url, resultList, accountName);
+        await sendMessageToSlack(req.body.response_url, buildSlackRequestBody(resultList, accountName));
 
         return next();
     }));
