@@ -47,13 +47,12 @@ const searchThroughProject = async (searchString, projectId) => {
 };
 
 const getResultListForString = async searchString => {
-    const encodedSearchString = searchString;
     const projects = await getProjects();
 
     const resultList = [];
 
     for (let project of projects) {
-        const results = await searchThroughProject(encodedSearchString, project.id);
+        const results = await searchThroughProject(searchString, project.id);
         results.forEach(result => {
             console.log(result);
             resultList.push({
